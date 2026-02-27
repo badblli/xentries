@@ -194,6 +194,10 @@ Hata formatı:
 }
 ```
 
+Rate limit (API key bazlı):
+- `10 req/s` sustained
+- `20` burst
+
 ### Health
 ```bash
 curl http://localhost:8000/health
@@ -399,6 +403,14 @@ curl -H "x-api-key: <KEY>" http://localhost:8000/api/v1/api-keys
 curl -H "x-api-key: <KEY>" http://localhost:8000/api/v1/settings/provider-status
 curl -H "x-api-key: <KEY>" http://localhost:8000/v1/settings/quota
 curl -H "x-api-key: <KEY>" http://localhost:8000/v1/settings/provider-status
+```
+
+### Trends (Phase 4)
+15 dakika cache ile safe stub döner. Resmi provider trend endpoint'i MVP'de desteklenmiyorsa scraping yapmadan `not_supported` yanıtı verir.
+
+```bash
+curl -H "x-api-key: <KEY>" "http://localhost:8000/api/v1/trends?region=TR"
+curl -H "x-api-key: <KEY>" "http://localhost:8000/v1/trends?region=US"
 ```
 
 ## WebSocket Kullanımı

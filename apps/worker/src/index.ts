@@ -188,6 +188,25 @@ new Worker(
     if (!res.ok) {
       throw new Error(`Webhook failed with ${res.status}`);
     }
+
+    await prisma.usageCounter
+      .upsert({
+        where: {
+          customerId_metric: {
+            customerId: event.customerId,
+            metric: "events_delivered",
+          },
+        },
+        create: {
+          customerId: event.customerId,
+          metric: "events_delivered",
+          value: 1,
+        },
+        update: {
+          value: { increment: 1 },
+        },
+      })
+      .catch(() => undefined);
   },
   {
     connection: { url: process.env.REDIS_URL ?? "redis://redis:6379" },
@@ -306,6 +325,25 @@ new Worker(
           finishedAt: new Date(),
         },
       });
+
+      await prisma.usageCounter
+        .upsert({
+          where: {
+            customerId_metric: {
+              customerId: extraction.customerId,
+              metric: "extraction_rows",
+            },
+          },
+          create: {
+            customerId: extraction.customerId,
+            metric: "extraction_rows",
+            value: Array.isArray(result) ? result.length : 0,
+          },
+          update: {
+            value: { increment: Array.isArray(result) ? result.length : 0 },
+          },
+        })
+        .catch(() => undefined);
     } catch (error) {
       await prisma.extractionJob.update({
         where: { id: extraction.id },

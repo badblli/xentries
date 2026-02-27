@@ -1,6 +1,5 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
-import rateLimit from "@fastify/rate-limit";
 import swagger from "@fastify/swagger";
 import swaggerUi from "@fastify/swagger-ui";
 import websocket from "@fastify/websocket";
@@ -51,11 +50,6 @@ app.setErrorHandler((error, _request, reply) => {
 });
 
 await app.register(cors, { origin: true });
-await app.register(rateLimit, {
-  max: config.rateLimitMax,
-  timeWindow: `${config.rateLimitWindowSec} second`,
-  keyGenerator: (req) => String(req.headers["x-api-key"] ?? req.ip),
-});
 await app.register(swagger, {
   openapi: {
     info: {

@@ -49,6 +49,12 @@ enum ExtractionStatus {
   failed
 }
 
+enum UsageMetric {
+  api_calls
+  extraction_rows
+  events_delivered
+}
+
 model Customer {
   id             String          @id @default(cuid())
   name           String
@@ -64,6 +70,7 @@ model Customer {
   extractionJobs ExtractionJob[]
   providerTokens ProviderToken[]
   apiKeys        ApiKey[]
+  usageCounters  UsageCounter[]
 }
 
 model ApiKey {
@@ -194,4 +201,17 @@ model WebhookDeliveryAttempt {
 
   @@index([eventId, webhookId, attempt])
   @@index([webhookId, createdAt])
+}
+
+model UsageCounter {
+  id         String      @id @default(cuid())
+  customerId String
+  metric     UsageMetric
+  value      Int         @default(0)
+  updatedAt  DateTime    @updatedAt
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@unique([customerId, metric])
+  @@index([customerId])
 }
