@@ -463,6 +463,11 @@ Bağlantı notları:
 - Cursor/Codex: MCP URL olarak `http://localhost:8000/mcp`, header olarak `x-api-key` gönderin.
 - Claude Desktop: custom MCP server URL `http://localhost:8000/mcp` ve header `x-api-key` ile bağlayın.
 
+### Cost Optimizations (Phase 7)
+- Collector aynı hedefe bakan monitorleri grup halinde işler (`shared_fetch + fanout`).
+- Aynı hedef için provider çağrısı tek sefer yapılır, eventler ilgili monitor/customer setlerine dağıtılır.
+- Polling döngüsü monitor başına bloklayıcı uyku yerine `due-scheduler` yaklaşımıyla çalışır.
+
 ## WebSocket Kullanımı
 Endpoint:
 - `ws://localhost:8000/ws`
