@@ -1,0 +1,197 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Plan {
+  starter
+  pro
+  scale
+}
+
+enum MonitorType {
+  keyword
+  user
+  mentions
+}
+
+enum MonitorKind {
+  account
+  query
+  tweet
+}
+
+enum Provider {
+  x
+  reddit
+}
+
+enum EventType {
+  tweet_new
+  mention_new
+  reply_new
+  user_tweet_new
+}
+
+enum ExtractionKind {
+  user_tweets
+  search_results
+}
+
+enum ExtractionStatus {
+  queued
+  running
+  completed
+  failed
+}
+
+model Customer {
+  id             String          @id @default(cuid())
+  name           String
+  apiKeyHash     String
+  plan           Plan            @default(starter)
+  quota          Int             @default(10000)
+  locale         String          @default("en")
+  isActive       Boolean         @default(true)
+  createdAt      DateTime        @default(now())
+  webhooks       Webhook[]
+  monitors       Monitor[]
+  events         Event[]
+  extractionJobs ExtractionJob[]
+  providerTokens ProviderToken[]
+  apiKeys        ApiKey[]
+}
+
+model ApiKey {
+  id         String    @id @default(cuid())
+  customerId String
+  name       String
+  prefix     String    @unique
+  keyHash    String
+  last4      String
+  isRevoked  Boolean   @default(false)
+  revokedAt  DateTime?
+  lastUsedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@index([customerId, isRevoked])
+}
+
+model Webhook {
+  id         String   @id @default(cuid())
+  customerId String
+  url        String
+  secret     String
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  monitors Monitor[]
+  attempts WebhookDeliveryAttempt[]
+
+  @@index([customerId])
+}
+
+model Monitor {
+  id                 String      @id @default(cuid())
+  customerId         String
+  provider           Provider    @default(x)
+  type               MonitorType
+  kind               MonitorKind @default(query)
+  query              String
+  targetJson         Json?
+  pollingIntervalSec Int
+  eventTypes         String[]
+  webhookId          String?
+  isActive           Boolean     @default(true)
+  lastCursor         String?
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  webhook  Webhook? @relation(fields: [webhookId], references: [id], onDelete: SetNull)
+  events   Event[]
+
+  @@index([customerId, provider, isActive])
+}
+
+model Event {
+  id             String   @id @default(cuid())
+  customerId     String
+  monitorId      String
+  type           String
+  providerItemId String
+  payloadJson    Json
+  occurredAt     DateTime
+  createdAt      DateTime @default(now())
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  monitor  Monitor  @relation(fields: [monitorId], references: [id], onDelete: Cascade)
+  attempts WebhookDeliveryAttempt[]
+
+  @@unique([customerId, monitorId, providerItemId, type])
+  @@index([customerId, createdAt])
+  @@index([monitorId, createdAt])
+  @@index([customerId, createdAt, id])
+}
+
+model ExtractionJob {
+  id           String           @id @default(cuid())
+  customerId   String
+  tool         String           @default("x.search_results")
+  kind         ExtractionKind
+  paramsJson   Json
+  status       ExtractionStatus @default(queued)
+  progress     Int              @default(0)
+  resultJson   Json?
+  errorMessage String?
+  createdAt    DateTime         @default(now())
+  startedAt    DateTime?
+  finishedAt   DateTime?
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@index([customerId, createdAt])
+}
+
+model ProviderToken {
+  id                    String   @id @default(cuid())
+  customerId            String
+  provider              String
+  tokenType             String
+  accessTokenEncrypted  String
+  refreshTokenEncrypted String?
+  expiresAt             DateTime?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@index([customerId, provider])
+}
+
+model WebhookDeliveryAttempt {
+  id           String   @id @default(cuid())
+  eventId      String
+  webhookId    String
+  attempt      Int
+  status       String
+  responseCode Int?
+  responseBody String?
+  requestId    String?
+  durationMs   Int?
+  nextRetryAt  DateTime?
+  createdAt    DateTime @default(now())
+
+  event   Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  webhook Webhook @relation(fields: [webhookId], references: [id], onDelete: Cascade)
+
+  @@index([eventId, webhookId, attempt])
+  @@index([webhookId, createdAt])
+}

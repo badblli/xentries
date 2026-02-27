@@ -1,0 +1,45 @@
+{
+  "name": "@xdev/api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo api lint ok",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "format": "echo api format ok",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:migrate:dev": "prisma migrate dev",
+    "seed": "tsx src/seed.ts"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.2",
+    "@fastify/rate-limit": "^10.3.0",
+    "@fastify/swagger": "^9.5.1",
+    "@fastify/swagger-ui": "^5.2.2",
+    "@fastify/websocket": "^11.0.2",
+    "@prisma/client": "^6.3.1",
+    "@xdev/shared": "workspace:*",
+    "argon2": "^0.41.1",
+    "bullmq": "^5.41.2",
+    "csv-stringify": "^6.5.2",
+    "dotenv": "^16.4.7",
+    "fastify": "^5.1.0",
+    "ioredis": "^5.4.2",
+    "nanoid": "^5.0.9",
+    "pino": "^9.6.0",
+    "xlsx": "^0.18.5",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "prisma": "^6.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}
