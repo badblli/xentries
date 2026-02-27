@@ -1,0 +1,273 @@
+{
+  "marketing": {
+    "nav": {
+      "docs": "Docs",
+      "pricing": "Pricing",
+      "openApp": "Open App"
+    },
+    "landing": {
+      "badge": "Realtime Social Event Gateway",
+      "title": "Ship social intelligence as a realtime API, not a custom pipeline.",
+      "subtitle": "Xentries turns provider events into one normalized contract. Search instantly, promote to monitors, stream results to WebSocket and signed webhooks.",
+      "ctaPrimary": "Start Building",
+      "ctaSecondary": "View Pricing",
+      "features": {
+        "search": {
+          "title": "Instant Search",
+          "desc": "Run pull-style queries in seconds and validate traffic before creating monitors."
+        },
+        "monitors": {
+          "title": "Always-on Monitors",
+          "desc": "Convert winning queries into durable monitors with dedupe, cursoring and tenant isolation."
+        },
+        "delivery": {
+          "title": "Realtime Delivery",
+          "desc": "Deliver structured events via WebSocket and HMAC-signed webhooks with retries."
+        }
+      },
+      "flow": {
+        "step1": {
+          "eyebrow": "Step 1",
+          "title": "Search",
+          "desc": "Probe hashtag, mention and keyword demand before you commit to a monitor."
+        },
+        "step2": {
+          "eyebrow": "Step 2",
+          "title": "Monitor",
+          "desc": "Choose provider, event types and interval. Xentries handles polling and dedupe."
+        },
+        "step3": {
+          "eyebrow": "Step 3",
+          "title": "Deliver",
+          "desc": "Fan out events to your app stack through API, WebSocket, or webhook endpoints."
+        }
+      },
+      "ticker": {
+        "label": "Live Event Stream Preview",
+        "i1": "tweet.new  •  from:@openai",
+        "i2": "mention.new  •  query:#ai",
+        "i3": "reply.new  •  monitor:brand-watch",
+        "i4": "user.tweet.new  •  user:elonmusk",
+        "i5": "webhook.delivered  •  status:200"
+      },
+      "snippet": {
+        "label": "Developer-first",
+        "title": "One stream client. Unified event contract.",
+        "desc": "Designed for infra teams that need speed today and multi-provider scale tomorrow."
+      }
+    },
+    "pricing": {
+      "title": "Clear pricing in USD",
+      "subtitle": "Start in minutes, scale as throughput grows. No hidden overage traps.",
+      "paymentHint": "Checkout integration will support Lemon Squeezy or Paddle in the next phase.",
+      "billing": {
+        "monthly": "Monthly",
+        "yearly": "Yearly"
+      },
+      "popular": "Most popular",
+      "annualSavings": "Billed yearly, save up to 20%",
+      "monthlyBilling": "Billed monthly",
+      "cta": "Open App",
+      "starter": {
+        "name": "Starter",
+        "desc": "For indie builders and MVPs.",
+        "monthly": "$49/mo",
+        "yearly": "$39/mo",
+        "events": "50K events / month",
+        "retention": "7-day event retention",
+        "webhooks": "2 webhook endpoints",
+        "support": "Community support"
+      },
+      "pro": {
+        "name": "Pro",
+        "desc": "For production workloads.",
+        "monthly": "$149/mo",
+        "yearly": "$119/mo",
+        "events": "300K events / month",
+        "retention": "30-day event retention",
+        "webhooks": "20 webhook endpoints",
+        "support": "Priority email support"
+      },
+      "scale": {
+        "name": "Scale",
+        "desc": "For high-throughput platforms.",
+        "monthly": "$499/mo",
+        "yearly": "$399/mo",
+        "events": "2M events / month",
+        "retention": "90-day event retention",
+        "webhooks": "Unlimited webhooks",
+        "support": "Shared Slack channel"
+      },
+      "faq": {
+        "label": "FAQ",
+        "title": "Before you integrate",
+        "q1": {
+          "title": "Can I start without OAuth?",
+          "desc": "Yes. MVP runs in public mode with server-managed provider tokens."
+        },
+        "q2": {
+          "title": "What happens on provider 401/403?",
+          "desc": "You get standardized provider errors and status checks without exposing secrets."
+        },
+        "q3": {
+          "title": "Can we switch plans later?",
+          "desc": "Yes. Plan changes are designed to be instant and non-breaking for existing monitors."
+        }
+      },
+      "comparison": {
+        "title": "Plan comparison",
+        "feature": "Feature",
+        "rows": {
+          "events": "Included events",
+          "retention": "Retention",
+          "webhooks": "Webhook endpoints",
+          "support": "Support"
+        }
+      }
+    },
+    "docs": {
+      "badge": "Quickstart",
+      "title": "Integrate Xentries in under 5 minutes",
+      "subtitle": "Copy, run, and ship. Start with search, create a monitor, then subscribe to realtime events.",
+      "blocks": {
+        "search": {
+          "label": "Pull",
+          "title": "Search now",
+          "desc": "Validate demand and inspect normalized payloads before provisioning monitors."
+        },
+        "monitor": {
+          "label": "Ingest",
+          "title": "Create monitor",
+          "desc": "Turn a query into continuous polling with event-type filtering and dedupe."
+        },
+        "deliver": {
+          "label": "Push",
+          "title": "Stream events",
+          "desc": "Receive realtime events through WebSocket and signed webhooks."
+        }
+      },
+      "quickstart": {
+        "title": "Quickstart",
+        "s1": "Get your API key from owner/admin and keep it in XENTRIES_API_KEY.",
+        "s2": "Run Search to validate provider access and query quality.",
+        "s3": "Create a monitor with provider, event types and interval.",
+        "s4": "Subscribe via WebSocket or webhook to consume events in realtime."
+      },
+      "snippets": {
+        "sdk": {
+          "title": "0) SDK quick call",
+          "tabs": {
+            "node": "Node",
+            "python": "Python",
+            "curl": "cURL"
+          }
+        },
+        "search": { "title": "1) Search tweets" },
+        "monitor": { "title": "2) Create monitor" },
+        "ws": { "title": "3) WebSocket subscription" },
+        "webhook": { "title": "4) Verify webhook signature" }
+      }
+    }
+  },
+  "app": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "search": "Search",
+      "monitors": "Monitors",
+      "events": "Events",
+      "webhooks": "Webhooks",
+      "extractions": "Extractions",
+      "mcp": "MCP",
+      "settings": "Settings"
+    },
+    "common": {
+      "logout": "Logout",
+      "liveConnected": "Live",
+      "liveDisconnected": "Offline"
+    },
+    "providerBanner": {
+      "title": "Provider currently unavailable",
+      "description": "Provider is not configured or reachable by admin right now. You can keep using app flow; events will appear once provider recovers.",
+      "contactAdmin": "Contact admin"
+    },
+    "login": {
+      "subtitle": "Owner/Admin Access",
+      "description": "Enter your API key to access protected app routes.",
+      "submit": "Sign in",
+      "loading": "Checking...",
+      "invalid": "Invalid API key"
+    },
+    "dashboard": {
+      "title": "Welcome to Xentries",
+      "subtitle": "Follow the guided flow to go from search to delivery.",
+      "go": "Go",
+      "steps": {
+        "search": {"title": "Step 1: Try Search", "desc": "Run a query like #ai or openai."},
+        "monitor": {"title": "Step 2: Create a Monitor", "desc": "Turn useful queries into always-on monitors."},
+        "events": {"title": "Step 3: Watch Live Events", "desc": "Inspect event feed and filtering controls."},
+        "webhook": {"title": "Step 4: Add a Webhook", "desc": "Push normalized events into your systems."}
+      }
+    },
+    "search": {
+      "title": "Search",
+      "subtitle": "Pull provider data now and promote query to monitor.",
+      "runSearch": "Run search",
+      "createMonitor": "Create monitor from query",
+      "loading": "Searching...",
+      "providerUnavailable": "Provider unavailable. Ask admin to configure provider connectivity.",
+      "empty": "No results yet.",
+      "turnIntoMonitor": "Turn into monitor",
+      "monitorModalTitle": "Create monitor",
+      "provider": "Provider",
+      "polling": "Polling interval",
+      "query": "Query",
+      "cancel": "Cancel",
+      "creating": "Creating...",
+      "create": "Create"
+    },
+    "monitors": {
+      "title": "Monitors",
+      "create": "Create",
+      "delete": "Delete"
+    },
+    "events": {
+      "title": "Events",
+      "subtitle": "Realtime feed with monitor and type filters.",
+      "live": "Live",
+      "allMonitors": "All monitors",
+      "allTypes": "All types",
+      "empty": "No events yet. Try a higher-traffic query or check provider status."
+    },
+    "webhooks": {
+      "title": "Webhooks",
+      "create": "Create webhook",
+      "test": "Test webhook",
+      "attemptsStub": "Delivery attempts list endpoint is not available yet."
+    },
+    "extractions": {
+      "title": "Extractions",
+      "create": "Create extraction"
+    },
+    "mcp": {
+      "title": "MCP Connection Guide",
+      "subtitle": "Connect Cursor, Codex or Claude Desktop with x-api-key authenticated StreamableHTTP.",
+      "officialOnly": "Xentries uses only official provider APIs. No scraping or ToS circumvention.",
+      "publicMode": "MVP public mode: provider credentials are configured by operator/admin, not end users.",
+      "cursor": {
+        "title": "Cursor / Codex"
+      },
+      "claude": {
+        "title": "Claude Desktop"
+      },
+      "smoke": {
+        "title": "Smoke test"
+      }
+    },
+    "settings": {
+      "title": "Settings",
+      "plan": "Plan",
+      "quota": "Quota",
+      "provider": "Provider status"
+    }
+  }
+}

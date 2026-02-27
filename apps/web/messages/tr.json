@@ -1,0 +1,293 @@
+{
+  "marketing": {
+    "nav": {
+      "docs": "Dokümantasyon",
+      "pricing": "Fiyatlandırma",
+      "openApp": "Uygulamayı Aç"
+    },
+    "landing": {
+      "badge": "Gerçek Zamanlı Sosyal Olay Geçidi",
+      "title": "Sosyal zekâyı özel pipeline yerine doğrudan gerçek zamanlı API olarak ürünleştir.",
+      "subtitle": "Xentries, sağlayıcı olaylarını tek bir normalize sözleşmede toplar. Anında arama yap, monitöre dönüştür, WebSocket ve imzalı webhook ile dağıt.",
+      "ctaPrimary": "Hemen Başla",
+      "ctaSecondary": "Fiyatları Gör",
+      "features": {
+        "search": {
+          "title": "Anlık Arama",
+          "desc": "Monitör oluşturmadan önce sorgu kalitesini ve trafik yoğunluğunu saniyeler içinde doğrula."
+        },
+        "monitors": {
+          "title": "Sürekli Monitörler",
+          "desc": "Kazanan sorguları kalıcı monitöre çevir; dedupe, cursor ve tenant izolasyonu hazır gelsin."
+        },
+        "delivery": {
+          "title": "Gerçek Zamanlı Teslimat",
+          "desc": "Yapılandırılmış olayları WebSocket ve HMAC imzalı webhook ile güvenle ilet."
+        }
+      },
+      "flow": {
+        "step1": {
+          "eyebrow": "Adım 1",
+          "title": "Ara",
+          "desc": "Monitör kurmadan önce hashtag/mention/anahtar kelime talebini ölç."
+        },
+        "step2": {
+          "eyebrow": "Adım 2",
+          "title": "Monitör",
+          "desc": "Sağlayıcıyı, olay türlerini ve polling aralığını seç. Otomasyonun geri kalanı Xentries'de."
+        },
+        "step3": {
+          "eyebrow": "Adım 3",
+          "title": "Teslim Et",
+          "desc": "Olayları API, WebSocket veya webhook ile ürün akışına bağla."
+        }
+      },
+      "ticker": {
+        "label": "Canlı Olay Akışı Önizlemesi",
+        "i1": "tweet.new  •  from:@openai",
+        "i2": "mention.new  •  query:#ai",
+        "i3": "reply.new  •  monitor:brand-watch",
+        "i4": "user.tweet.new  •  user:elonmusk",
+        "i5": "webhook.delivered  •  status:200"
+      },
+      "snippet": {
+        "label": "Geliştirici Öncelikli",
+        "title": "Tek stream istemcisi, tek olay sözleşmesi",
+        "desc": "Bugün hızlı entegrasyon, yarın çoklu sağlayıcı ölçeği için tasarlandı."
+      }
+    },
+    "pricing": {
+      "title": "USD bazlı net fiyatlandırma",
+      "subtitle": "Dakikalar içinde başla, hacim büyüdükçe sorunsuz ölçeklen.",
+      "paymentHint": "Ödeme entegrasyonu bir sonraki aşamada Lemon Squeezy veya Paddle ile eklenecek.",
+      "billing": {
+        "monthly": "Aylık",
+        "yearly": "Yıllık"
+      },
+      "popular": "En Çok Tercih Edilen",
+      "annualSavings": "Yıllık ödemede %20'ye kadar avantaj",
+      "monthlyBilling": "Aylık faturalandırma",
+      "cta": "Uygulamayı Aç",
+      "starter": {
+        "name": "Starter",
+        "desc": "Bağımsız ekipler ve MVP'ler için.",
+        "monthly": "$49/ay",
+        "yearly": "$39/ay",
+        "events": "50K olay / ay",
+        "retention": "7 gün olay saklama",
+        "webhooks": "2 webhook uç noktası",
+        "support": "Topluluk desteği"
+      },
+      "pro": {
+        "name": "Pro",
+        "desc": "Canlı üretim iş yükleri için.",
+        "monthly": "$149/ay",
+        "yearly": "$119/ay",
+        "events": "300K olay / ay",
+        "retention": "30 gün olay saklama",
+        "webhooks": "20 webhook uç noktası",
+        "support": "Öncelikli e-posta desteği"
+      },
+      "scale": {
+        "name": "Scale",
+        "desc": "Yüksek throughput platformları için.",
+        "monthly": "$499/ay",
+        "yearly": "$399/ay",
+        "events": "2M olay / ay",
+        "retention": "90 gün olay saklama",
+        "webhooks": "Sınırsız webhook",
+        "support": "Paylaşımlı Slack kanalı"
+      },
+      "faq": {
+        "label": "SSS",
+        "title": "Entegrasyon öncesi sık sorulanlar",
+        "q1": {
+          "title": "OAuth bağlamadan başlayabilir miyim?",
+          "desc": "Evet. MVP, sunucu yönetimli sağlayıcı token ile public mode'da çalışır."
+        },
+        "q2": {
+          "title": "Sağlayıcı 401/403 dönerse ne olur?",
+          "desc": "Token ifşa etmeden standart sağlayıcı durumunu ve güvenli hata kodlarını alırsın."
+        },
+        "q3": {
+          "title": "Paketi sonradan değiştirebilir miyim?",
+          "desc": "Evet. Mevcut monitörleri bozmadan planını yükseltebilirsin."
+        }
+      },
+      "comparison": {
+        "title": "Plan karşılaştırması",
+        "feature": "Özellik",
+        "rows": {
+          "events": "Dahil olay",
+          "retention": "Saklama süresi",
+          "webhooks": "Webhook uç noktası",
+          "support": "Destek"
+        }
+      }
+    },
+    "docs": {
+      "badge": "Hızlı Başlangıç",
+      "title": "Xentries entegrasyonunu 5 dakikada tamamla",
+      "subtitle": "Kopyala, çalıştır, yayına al. Aramayla başla, monitör oluştur, sonra canlı olay akışına bağlan.",
+      "blocks": {
+        "search": {
+          "label": "Pull",
+          "title": "Hemen ara",
+          "desc": "Monitör açmadan önce talebi doğrula ve normalize payload'ı incele."
+        },
+        "monitor": {
+          "label": "Ingest",
+          "title": "Monitör oluştur",
+          "desc": "Sorguyu olay türü filtreleri ve dedupe ile sürekli polling'e dönüştür."
+        },
+        "deliver": {
+          "label": "Push",
+          "title": "Olay akışını tüket",
+          "desc": "Olayları WebSocket ve imzalı webhook ile gerçek zamanlı al."
+        }
+      },
+      "quickstart": {
+        "title": "Hızlı Başlangıç",
+        "s1": "Owner/admin'den API anahtarını al ve XENTRIES_API_KEY olarak sakla.",
+        "s2": "Sağlayıcı erişimini ve sorgu kalitesini doğrulamak için Arama çalıştır.",
+        "s3": "Sağlayıcı, olay türleri ve interval ile monitör oluştur.",
+        "s4": "Olayları gerçek zamanlı tüketmek için WebSocket veya webhook kullan."
+      },
+      "snippets": {
+        "sdk": {
+          "title": "0) SDK hızlı çağrı",
+          "tabs": {
+            "node": "Node",
+            "python": "Python",
+            "curl": "cURL"
+          }
+        },
+        "search": {
+          "title": "1) Tweet arama"
+        },
+        "monitor": {
+          "title": "2) Monitör oluşturma"
+        },
+        "ws": {
+          "title": "3) WebSocket aboneliği"
+        },
+        "webhook": {
+          "title": "4) Webhook imza doğrulama"
+        }
+      }
+    }
+  },
+  "app": {
+    "nav": {
+      "dashboard": "Kontrol Paneli",
+      "search": "Arama",
+      "monitors": "Monitörler",
+      "events": "Olaylar",
+      "webhooks": "Webhook'lar",
+      "extractions": "Dışa Aktarımlar",
+      "mcp": "MCP",
+      "settings": "Ayarlar"
+    },
+    "common": {
+      "logout": "Çıkış Yap",
+      "liveConnected": "Canlı",
+      "liveDisconnected": "Bağlı Değil"
+    },
+    "providerBanner": {
+      "title": "Sağlayıcı şu anda kullanılamıyor",
+      "description": "Sağlayıcı admin tarafında tanımlı değil veya erişilemiyor. Akışı kullanmaya devam edebilirsin; bağlantı düzelince olaylar gelmeye başlayacak.",
+      "contactAdmin": "Admin ile iletişime geç"
+    },
+    "login": {
+      "subtitle": "Owner/Admin Girişi",
+      "description": "Korunan uygulama sayfalarına erişmek için API anahtarını gir.",
+      "submit": "Giriş Yap",
+      "loading": "Kontrol ediliyor...",
+      "invalid": "API anahtarı geçersiz"
+    },
+    "dashboard": {
+      "title": "Xentries'e hoş geldin",
+      "subtitle": "Aramadan teslimata kadar yönlendirmeli akışı takip et.",
+      "go": "Git",
+      "steps": {
+        "search": {
+          "title": "Adım 1: Aramayı dene",
+          "desc": "#ai veya openai gibi bir sorgu çalıştır."
+        },
+        "monitor": {
+          "title": "Adım 2: Monitör oluştur",
+          "desc": "İşe yarayan sorguları sürekli çalışan monitöre dönüştür."
+        },
+        "events": {
+          "title": "Adım 3: Canlı olayları izle",
+          "desc": "Olay akışını ve filtreleri incele."
+        },
+        "webhook": {
+          "title": "Adım 4: Webhook ekle",
+          "desc": "Normalize olayları kendi sistemlerine gönder."
+        }
+      }
+    },
+    "search": {
+      "title": "Arama",
+      "subtitle": "Sağlayıcı verisini anında çek, sorguyu monitöre dönüştür.",
+      "runSearch": "Ara",
+      "createMonitor": "Sorgudan monitör oluştur",
+      "loading": "Aranıyor...",
+      "providerUnavailable": "Sağlayıcı kullanılamıyor. Admin'in sağlayıcı bağlantısını kontrol etmesi gerekiyor.",
+      "empty": "Henüz sonuç yok.",
+      "turnIntoMonitor": "Monitöre dönüştür",
+      "monitorModalTitle": "Monitör oluştur",
+      "provider": "Sağlayıcı",
+      "polling": "Polling aralığı",
+      "query": "Sorgu",
+      "cancel": "İptal",
+      "creating": "Oluşturuluyor...",
+      "create": "Oluştur"
+    },
+    "monitors": {
+      "title": "Monitörler",
+      "create": "Oluştur",
+      "delete": "Sil"
+    },
+    "events": {
+      "title": "Olaylar",
+      "subtitle": "Monitör ve tür filtreleriyle canlı akış.",
+      "live": "Canlı",
+      "allMonitors": "Tüm monitörler",
+      "allTypes": "Tüm türler",
+      "empty": "Henüz olay yok. Daha yüksek trafikli bir sorgu dene veya sağlayıcı durumunu kontrol et."
+    },
+    "webhooks": {
+      "title": "Webhook'lar",
+      "create": "Webhook oluştur",
+      "test": "Webhook test et",
+      "attemptsStub": "Teslimat denemeleri listesi uç noktası henüz hazır değil."
+    },
+    "extractions": {
+      "title": "Dışa Aktarımlar",
+      "create": "Dışa aktarım başlat"
+    },
+    "mcp": {
+      "title": "MCP Bağlantı Rehberi",
+      "subtitle": "Cursor, Codex veya Claude Desktop'u x-api-key doğrulamalı StreamableHTTP ile bağla.",
+      "officialOnly": "Xentries yalnızca resmi sağlayıcı API'lerini kullanır. Scraping veya ToS ihlali yoktur.",
+      "publicMode": "MVP public mode: sağlayıcı kimlik bilgileri son kullanıcı tarafından değil, operator/admin tarafından yönetilir.",
+      "cursor": {
+        "title": "Cursor / Codex"
+      },
+      "claude": {
+        "title": "Claude Desktop"
+      },
+      "smoke": {
+        "title": "Smoke test"
+      }
+    },
+    "settings": {
+      "title": "Ayarlar",
+      "plan": "Paket",
+      "quota": "Kota",
+      "provider": "Sağlayıcı durumu"
+    }
+  }
+}
