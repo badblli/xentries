@@ -22,6 +22,7 @@ import { ProviderMappedError } from "./providers/errors.js";
 import { providerErrorToJson, jsonError } from "./http/errors.js";
 import apiV1Routes from "./routes/api-v1.js";
 import v1CompatRoutes from "./routes/v1-compat.js";
+import mcpRoutes from "./routes/mcp.js";
 import { authenticateApiKey } from "./services/api-key-service.js";
 import { parseWsMessage } from "./ws.js";
 
@@ -115,6 +116,7 @@ app.post("/internal/monitors/:id/cursor", async (request, reply) => {
 
 await app.register(apiV1Routes, { prefix: "/api/v1" });
 await app.register(v1CompatRoutes, { prefix: "/v1" });
+await app.register(mcpRoutes);
 
 app.get("/v1/search/tweets", { preHandler: requireApiKey }, async (request, reply) => {
   const customer = getCustomer(request);

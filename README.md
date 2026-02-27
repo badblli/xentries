@@ -137,8 +137,8 @@ docker compose up --build -d
 Servisler:
 - API: `http://localhost:8000`
 - Swagger UI: `http://localhost:8000/docs`
-- Web App: `http://localhost:3001`
-- Pricing: `http://localhost:3001/pricing`
+- Web App: `http://localhost:3000`
+- Pricing: `http://localhost:3000/pricing`
 - Postgres: `localhost:5432`
 - Redis: `localhost:6379`
 
@@ -413,6 +413,56 @@ curl -H "x-api-key: <KEY>" "http://localhost:8000/api/v1/trends?region=TR"
 curl -H "x-api-key: <KEY>" "http://localhost:8000/v1/trends?region=US"
 ```
 
+### MCP Server (Phase 5)
+MCP endpointleri:
+- `POST /mcp` (canonical)
+- `POST /api/mcp` (alias)
+- `GET /mcp` (tool introspection)
+
+Auth:
+- `x-api-key: <KEY>`
+- Transport: `StreamableHTTP`
+
+Örnek initialize:
+```bash
+curl -X POST http://localhost:8000/mcp \
+  -H "content-type: application/json" \
+  -H "x-api-key: <KEY>" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}'
+```
+
+Örnek tools/list:
+```bash
+curl -X POST http://localhost:8000/mcp \
+  -H "content-type: application/json" \
+  -H "x-api-key: <KEY>" \
+  -d '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}'
+```
+
+Örnek tools/call:
+```bash
+curl -X POST http://localhost:8000/mcp \
+  -H "content-type: application/json" \
+  -H "x-api-key: <KEY>" \
+  -d '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"list_monitors","arguments":{}}}'
+```
+
+Desteklenen MCP araçları:
+- `list_monitors`
+- `create_monitor`
+- `update_monitor`
+- `list_events`
+- `search_tweets`
+- `create_extraction`
+- `get_extraction`
+- `export_extraction`
+- `create_webhook`
+- `list_webhooks`
+
+Bağlantı notları:
+- Cursor/Codex: MCP URL olarak `http://localhost:8000/mcp`, header olarak `x-api-key` gönderin.
+- Claude Desktop: custom MCP server URL `http://localhost:8000/mcp` ve header `x-api-key` ile bağlayın.
+
 ## WebSocket Kullanımı
 Endpoint:
 - `ws://localhost:8000/ws`
@@ -499,3 +549,4 @@ docker compose up --build
   - `app.xentries.com`
   - `api.xentries.com`
   - `docs.xentries.com`
+
