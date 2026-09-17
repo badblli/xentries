@@ -1,0 +1,13 @@
+# Environment secrets
+.env*
+!**/.env.example
+# Dependencies and generated output
+node_modules/
+**/node_modules/
+dist/
+build/
+.next/
+coverage/
+__pycache__/
+*.py[cod]
+*.log

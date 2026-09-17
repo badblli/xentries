@@ -1,8 +1,10 @@
 # Xentries Monorepo
 
-Docker-first, SaaS-ready realtime social event gateway.
+Early-stage prototype for a realtime event gateway using the official X API.
 
 Bu proje X (official API) verisini monitor eder, normalize eder, event olarak saklar ve API + WebSocket + Webhook üzerinden yayınlar.
+
+> **Proje durumu:** Bu dal kısmi bir kaynak kodu anlık görüntüsüdür. Kök `pnpm-workspace.yaml`, `package.json` ve `docker-compose.yml` dosyaları bulunmadığından README’deki tam kurulum adımları bu checkout üzerinde henüz çalıştırılamaz. Mimari özeti hedeflenen sistemi de anlatır.
 
 ## Uyum ve Güvenlik
 - Scraping yok
